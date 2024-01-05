@@ -15,7 +15,7 @@ public class Main {
     private static void backpackProblem(){
         int[] items = fillitems();
         boolean[] itemsInBackpack = new boolean[NUMBER_OF_ITEMS];
-        boolean[] newItemsInBackpack = new boolean[NUMBER_OF_ITEMS];
+        boolean[] newItemsInBackpack = itemsInBackpack.clone();
         int itemsVolume = 0;
 
         for(int i = 0; i < NUMBER_OF_RUNS; i++){
@@ -52,7 +52,7 @@ public class Main {
     private static int sumItemsValues(int[] items, boolean[] itemsInBackpack){
         int sum = 0;
         for(int i = 0; i < NUMBER_OF_ITEMS; i++) {
-            if(itemsInBackpack[i] == true){
+            if(itemsInBackpack[i]){
                 sum = sum + items[i];
             }
         }
